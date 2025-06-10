@@ -10,7 +10,6 @@ const SearchForm = (props) => {
   const onSearch = (event) => {
     event.preventDefault();
     props.handleDataChange("search-movies", query)
-    console.log(query)
   }
   const onSort = (event) => {
     props.sortData(event.target.value)

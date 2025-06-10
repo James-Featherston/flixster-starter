@@ -16,9 +16,10 @@ p {
     border: solid 1px black;
     padding: 10px;
     border-radius: 10px;
+    background-color: #E4B4B4;
 }
 
 #movie-card:hover {
     cursor: pointer;
-    border: solid 1px red;
+    border: solid 1px #9DA993;
 }

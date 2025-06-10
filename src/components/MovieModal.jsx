@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './MovieModal.css'
-import { searchMovieById } from './utils/utils'
+import { searchMovieById } from '../utils/utils.js'
 
 const MovieModal = ({setModal, id}) => {
   const [movie, setMovie] = useState(null)

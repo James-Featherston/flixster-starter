@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import movieImg from './assets/movie.jpeg'
 import './MovieCard.css'
 import MovieModal from './MovieModal'
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import SearchForm from './SearchForm'
-import MovieList from './MovieList'
+import SearchForm from './components/SearchForm'
+import MovieList from './components/MovieList'
 
 const App = () => {
   
@@ -69,15 +69,14 @@ const App = () => {
       fetchData()
     } else if (dataType === "search-movies") {
       fetchSearchData()
-      console.log("searching")
     }
   }, [page, dataType, searchQuery])
 
   return (
     <div className="App">
       <header id="header-container">
-        <h1 id="title">Flixster</h1>
-        <SearchForm
+        <h1 id="title">🎬 Flixster</h1>
+        <SearchForm id 
           handleDataChange={handleDataChange} sortData={handleSortChange}
         />
       </header>
@@ -90,6 +89,9 @@ const App = () => {
           <p style={{marginBottom: "20px"}}> No More Movies To Load</p>
         }
       </main>
+      <footer id='footer'>
+        <p id="copy-write">@James-Featherston</p>
+      </footer>
     </div>
   )
 }

@@ -42,7 +42,6 @@ const prepareMovieData = (data) => {
         obj.release_date = movie.release_date
         result.push(obj)
     });
-    console.log(result)
     return result
 }
 
