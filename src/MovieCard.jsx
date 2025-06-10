@@ -5,12 +5,12 @@ import './MovieCard.css'
 // The movie's title
 // The movie's poster image
 // The movie's vote average
-const MovieCard = () => {
+const MovieCard = ({movie}) => {
   return (
     <div id="movie-card">
-      <img id="movie-img" src={movieImg} alt="" />
-      <h2>Movie Title</h2>
-      <p>Rating: XXX</p>
+      <img id="movie-img" src={movie.poster} alt="" />
+      <h2>{movie.title}</h2>
+      <p>Rating: {movie.rating}</p>
     </div>
   )
 }

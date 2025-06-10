@@ -1,7 +1,7 @@
 #list-container {
     margin: 10px;
     width: 90%;
-    background-color: red;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
