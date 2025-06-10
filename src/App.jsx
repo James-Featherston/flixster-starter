@@ -10,6 +10,7 @@ const App = () => {
   const [numPages, setNumPages] = useState(1)
   const [dataType, setDataType] = useState("now-playing")
   const [searchQuery, setSearchQuery] = useState("")
+  const [sortType, setSortType] = useState("")
 
   const fetchData = async () => {
     try {
@@ -55,6 +56,10 @@ const App = () => {
     }
   }
 
+  const handleSortChange = (newSortType) => {
+    setSortType(newSortType)
+  } 
+
   const handleLoadMore = () => {
     setPage(page + 1)
   }
@@ -73,13 +78,13 @@ const App = () => {
       <header id="header-container">
         <h1 id="title">Flixster</h1>
         <SearchForm
-          handleDataChange={handleDataChange}
+          handleDataChange={handleDataChange} sortData={handleSortChange}
         />
       </header>
       <main id="main-container">
-        <MovieList movieData={movieData}/>
+        <MovieList movieData={movieData} sortType={sortType}/>
         {
-          page <= numPages ? 
+          page <= numPages  && movieData.length !== 0 ? 
           <button style={{marginBottom: "20px"}} onClick={handleLoadMore}>Load More</button>
           :
           <p style={{marginBottom: "20px"}}> No More Movies To Load</p>

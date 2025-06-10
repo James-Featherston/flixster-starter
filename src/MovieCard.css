@@ -17,3 +17,8 @@ p {
     padding: 10px;
     border-radius: 10px;
 }
+
+#movie-card:hover {
+    cursor: pointer;
+    border: solid 1px red;
+}

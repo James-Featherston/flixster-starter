@@ -13,7 +13,7 @@ const SearchForm = (props) => {
     console.log(query)
   }
   const onSort = (event) => {
-    event.preventDefault();
+    props.sortData(event.target.value)
   }
   const handleNowPlaying = (event) => {
     setQuery("")
@@ -26,10 +26,11 @@ const SearchForm = (props) => {
         <button type="submit">Search</button>
       </form> 
       <button onClick={handleNowPlaying}>Now Playling</button>
-      <select>
+      <select onChange={onSort}>
         <option value="">Sort By</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
+        <option value="alphabetic">Alphabetic</option>
+        <option value="chronological">Chronologically</option>
+        <option value="vote-average">Vote Average</option>
       </select>
     </div>
   )
