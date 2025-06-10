@@ -1,0 +1,16 @@
+#movie-img {
+    width: 200px;
+    height: 150px;
+}
+
+h2 {
+    margin: 0px
+}
+
+#movie-card {
+    width: 200px;
+    margin: 10px;
+    border: solid 1px black;
+    padding: 10px;
+    border-radius: 10px;
+}
