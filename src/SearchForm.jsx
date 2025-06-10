@@ -1,22 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './SearchForm.css'
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+  const [query, setQuery] = useState("")
+
+  const handleSearchChange = (event) => {
+    setQuery(event.target.value)
+  }
   const onSearch = (event) => {
     event.preventDefault();
-    const searchTerm = event.target.elements.searchInput.value
-    console.log(searchTerm)
+    props.handleDataChange("search-movies", query)
+    console.log(query)
   }
   const onSort = (event) => {
     event.preventDefault();
-    console.log("do sort")
+  }
+  const handleNowPlaying = (event) => {
+    setQuery("")
+    props.handleDataChange("now-playing", "")
   }
   return (
     <div id="form-container">
       <form onSubmit={onSearch}>
-        <input type="text" name="searchInput" placeholder='Search Movies'/>
+        <input type="text" value={query} onChange={handleSearchChange} placeholder='Search Movies'/>
         <button type="submit">Search</button>
       </form> 
+      <button onClick={handleNowPlaying}>Now Playling</button>
       <select>
         <option value="">Sort By</option>
         <option value="option2">Option 2</option>

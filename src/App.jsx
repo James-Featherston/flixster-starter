@@ -8,6 +8,8 @@ const App = () => {
   const [movieData, setMovieData] = useState([])
   const [page, setPage] = useState(1)
   const [numPages, setNumPages] = useState(1)
+  const [dataType, setDataType] = useState("now-playing")
+  const [searchQuery, setSearchQuery] = useState("")
 
   const fetchData = async () => {
     try {
@@ -17,7 +19,6 @@ const App = () => {
         throw new Error('Failed to fetch data')
       }
       const data = await response.json();
-      console.log(data)
       if (movieData.length === 0) {
         setNumPages(data.total_pages)
       }
@@ -27,19 +28,53 @@ const App = () => {
     }
   }
 
+  const fetchSearchData = async () => {
+    try {
+      const apiKey = import.meta.env.VITE_API_KEY;
+      const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&page=${page}&query=${searchQuery}`)
+      if (!response.ok) {
+        throw new Error('Failed to fetch data')
+      }
+      const data = await response.json();
+      if (movieData.length === 0) {
+        setNumPages(data.total_pages)
+      }
+      setMovieData([...movieData, ...data.results])
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleDataChange = (newType, searchTerm) => {
+    if (newType !== dataType || searchTerm !== searchQuery) {
+      setDataType(newType)
+      setSearchQuery(searchTerm)
+      setMovieData([])
+      setNumPages(1)
+      setPage(1)
+    }
+  }
+
   const handleLoadMore = () => {
     setPage(page + 1)
   }
 
   useEffect(() => {
-    fetchData()
-  }, [page])
+    if (dataType === "now-playing") {
+      fetchData()
+    } else if (dataType === "search-movies") {
+      fetchSearchData()
+      console.log("searching")
+    }
+  }, [page, dataType, searchQuery])
 
   return (
     <div className="App">
       <header id="header-container">
         <h1 id="title">Flixster</h1>
-        <SearchForm/>
+        <SearchForm
+          handleDataChange={handleDataChange}
+        />
       </header>
       <main id="main-container">
         <MovieList movieData={movieData}/>

@@ -1,7 +1,6 @@
 const prepareMovieData = (data) => {
     let result = []
 
-    console.log(data)
     data.forEach(movie => {
         const obj = new Object;
         obj.title = movie.title
