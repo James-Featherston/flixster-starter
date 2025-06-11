@@ -10,7 +10,7 @@ const getGenres = (genres) => {
 const prepareSingleMovie = (movie) => {
     const res = {
     "title": movie.title,
-    "poster": `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    "poster": movie.poster_path === null ? null : `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
     "overview": movie.overview,
     "release_date": movie.release_date,
     "genres": getGenres(movie.genres),
@@ -25,7 +25,11 @@ const prepareMoviesData = (data) => {
     data.forEach(movie => {
         const obj = new Object;
         obj.title = movie.title
-        obj.poster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        if (movie.poster_path !== null) {
+            obj.poster = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        } else {
+            obj.poster = null
+        }
         obj.rating = movie.vote_average
         obj.id = movie.id
         obj.release_date = movie.release_date
@@ -36,7 +40,9 @@ const prepareMoviesData = (data) => {
 
 const movieDisplayTypes = {
     "nowPlaying" : 0,
-    "searchMovies" : 1
+    "searchMovies" : 1,
+    "favorites": 2,
+    "watched": 3, 
 }
 
 const movieSortTypes = {

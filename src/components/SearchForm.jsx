@@ -6,7 +6,6 @@ const SearchForm = (props) => {
   const [query, setQuery] = useState("")
 
   const handleSearchChange = (event) => {
-    console.log("What is happening")
     setQuery(event.target.value)
   }
   const onSearch = (event) => {
@@ -21,6 +20,10 @@ const SearchForm = (props) => {
     props.handleDataChange(movieDisplayTypes.nowPlaying, "")
   }
 
+  const handleSidebar = () => {
+    props.setSidebarState(!props.sidebarState)
+  }
+
   return (
     <section id="form-container">
       <div id="form-buttons">
@@ -30,13 +33,14 @@ const SearchForm = (props) => {
         </form> 
         <button className="form-field" onClick={changeToNowPlaying}>Clear</button>
       </div>
-      <button onClick={changeToNowPlaying}>Now Playling</button>
+      <button onClick={changeToNowPlaying}>Now Playing</button>
       <select onChange={onSort}>
         <option value="">Sort By</option>
         <option value={movieSortTypes.alphabetic}>Alphabetic</option>
         <option value={movieSortTypes.chronological}>Chronologically</option>
         <option value={movieSortTypes.voteAverage}>Vote Average</option>
       </select>
+      <button onClick={handleSidebar}>Open Sidebar</button>
     </section>
   )
 }

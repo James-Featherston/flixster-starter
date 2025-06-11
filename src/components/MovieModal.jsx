@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './MovieModal.css'
 import { searchMovieById } from '../utils/services.js'
 import { prepareSingleMovie } from '../utils/utils.js'
+import movieImg from '../assets/movie.png'
 
 const MovieModal = ({setModal, id}) => {
   const [movie, setMovie] = useState(null)
@@ -22,7 +23,7 @@ const MovieModal = ({setModal, id}) => {
           {
             movie !== null ?
             <div id="modal-content-container">
-              <img id="modal-movie-img" src={movie.poster} alt={movie.title} />
+              <img id="modal-movie-img" src={movie.poster === null ? movieImg : movie.poster} alt={movie.title} />
               <div id="modal-text-content">
                 <h1>{movie.title}</h1>
                 <p className='modal-p'>Release Date: {movie.release_date}</p>
