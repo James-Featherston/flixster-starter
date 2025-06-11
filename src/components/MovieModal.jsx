@@ -22,7 +22,7 @@ const MovieModal = ({setModal, id}) => {
           {
             movie !== null ?
             <div id="modal-content-container">
-              <img id="modal-movie-img" src={movie.poster} alt="Movie Poster" />
+              <img id="modal-movie-img" src={movie.poster} alt={movie.title} />
               <div id="modal-text-content">
                 <h1>{movie.title}</h1>
                 <p className='modal-p'>Release Date: {movie.release_date}</p>

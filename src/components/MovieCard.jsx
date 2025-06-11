@@ -6,11 +6,11 @@ const MovieCard = ({movie}) => {
   const [modal, setModal] = useState(false)
   return (
     <>
-      <div onClick={() => setModal(!modal)} id="movie-card">
-        <img id="movie-img" src={movie.poster} alt="" />
+      <article onClick={() => setModal(!modal)} id="movie-card">
+        <img id="movie-img" src={movie.poster} alt={movie.title} />
         <h2>{movie.title}</h2>
         <p>Rating: {movie.rating}</p>
-      </div>
+      </article>
       {
         modal && <MovieModal setModal={setModal} id={movie.id}/>
       }

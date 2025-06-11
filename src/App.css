@@ -58,7 +58,7 @@ button {
 }
 
 #title {
-  margin: 20px 0px 5px 0px;
+  margin: 10px 0px 5px 0px;
   color: white;
 }
 
@@ -75,4 +75,9 @@ button {
 
 #copy-write {
   margin-right: 50px;
+}
+
+#banner {
+  width: 100%;
+  background-color: #E4B4B4;
 }

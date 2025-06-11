@@ -22,7 +22,7 @@ const MovieList = (props) => {
     sortMoviesChronologically(preparedMovieData)
   }
   return (
-    <div id='list-container'>
+    <section id='list-container'>
       {
         preparedMovieData.map(movie => {
           return (
@@ -30,7 +30,7 @@ const MovieList = (props) => {
           )
         })
       }
-    </div>
+    </section>
   )
 }
 

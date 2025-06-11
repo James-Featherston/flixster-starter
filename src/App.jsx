@@ -64,6 +64,9 @@ const App = () => {
           handleDataChange={handleDataChange} sortData={handleSortChange}
         />
       </header>
+      <section id="banner">
+        <p>Welcome to Flixster</p>
+      </section>
       <main id="main-container">
         <MovieList movieData={movieData} sortType={sortType}/>
         {

@@ -3,3 +3,11 @@
     justify-content: space-around;
     width: 80%;
 }
+
+#form-buttons {
+    display: flex;
+}
+
+.form-field {
+    margin: 5px;
+}
