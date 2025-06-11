@@ -7,30 +7,19 @@ const getGenres = (genres) => {
     return res
 }
 
-const searchMovieById = async (id) => {
-    let movie = null
-    try {
-        const apiKey = import.meta.env.VITE_API_KEY;
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
-        if (!response.ok) {
-            throw new Error('Failed to fetch data')
-        }
-        movie = await response.json();
-    } catch (error) {
-        console.error(error)
-    }
+const prepareSingleMovie = (movie) => {
     const res = {
-        "title": movie.title,
-        "poster": `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-        "overview": movie.overview,
-        "release_date": movie.release_date,
-        "genres": getGenres(movie.genres),
-        "runtime": movie.runtime,
+    "title": movie.title,
+    "poster": `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+    "overview": movie.overview,
+    "release_date": movie.release_date,
+    "genres": getGenres(movie.genres),
+    "runtime": movie.runtime,
     }
     return res
 }
 
-const prepareMovieData = (data) => {
+const prepareMoviesData = (data) => {
     let result = []
     
     data.forEach(movie => {
@@ -45,4 +34,16 @@ const prepareMovieData = (data) => {
     return result
 }
 
-export {prepareMovieData, searchMovieById};
+const movieDisplayTypes = {
+    "nowPlaying" : 0,
+    "searchMovies" : 1
+}
+
+const movieSortTypes = {
+    "default" : 0,
+    "alphabetic" : 1,
+    "chronological" : 2,
+    "voteAverage" : 3,
+}
+
+export {prepareMoviesData, prepareSingleMovie, movieDisplayTypes, movieSortTypes};

@@ -12,6 +12,7 @@ p {
 
 #movie-card {
     width: 200px;
+    flex-grow: 1;
     margin: 10px;
     border: solid 1px black;
     padding: 10px;

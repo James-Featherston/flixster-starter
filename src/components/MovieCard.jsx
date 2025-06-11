@@ -2,9 +2,6 @@ import React, { useState } from 'react'
 import './MovieCard.css'
 import MovieModal from './MovieModal'
 
-// The movie's title
-// The movie's poster image
-// The movie's vote average
 const MovieCard = ({movie}) => {
   const [modal, setModal] = useState(false)
   return (

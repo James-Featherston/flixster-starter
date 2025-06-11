@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MovieCard from './MovieCard'
 import './MovieList.css'
-import { prepareMovieData } from '../utils/utils'
+import { prepareMoviesData } from '../utils/utils'
 import { sortMoviesAlphabetically, sortMoviesByVoteAverage, sortMoviesChronologically } from '../utils/sort-filter'
+import { movieSortTypes } from '../utils/utils'
 
 const MovieList = (props) => {
   if (!props.movieData) {
@@ -12,12 +13,12 @@ const MovieList = (props) => {
       </div>
     )
   }
-  const preparedMovieData = prepareMovieData(props.movieData)
-  if (props.sortType === "alphabetic") {
+  const preparedMovieData = prepareMoviesData(props.movieData)
+  if (props.sortType === movieSortTypes.alphabetic) {
     sortMoviesAlphabetically(preparedMovieData)
-  } else if (props.sortType === "vote-average") {
+  } else if (props.sortType === movieSortTypes.voteAverage) {
     sortMoviesByVoteAverage(preparedMovieData)
-  } else if (props.sortType === "chronological") {
+  } else if (props.sortType === movieSortTypes.chronological) {
     sortMoviesChronologically(preparedMovieData)
   }
   return (

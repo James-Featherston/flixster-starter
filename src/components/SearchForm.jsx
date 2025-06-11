@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './SearchForm.css'
+import { movieDisplayTypes, movieSortTypes } from '../utils/utils'
 
 const SearchForm = (props) => {
   const [query, setQuery] = useState("")
@@ -9,15 +10,16 @@ const SearchForm = (props) => {
   }
   const onSearch = (event) => {
     event.preventDefault();
-    props.handleDataChange("search-movies", query)
+    props.handleDataChange(movieDisplayTypes.searchMovies, query)
   }
   const onSort = (event) => {
-    props.sortData(event.target.value)
+    props.sortData(Number(event.target.value))
   }
   const handleNowPlaying = (event) => {
     setQuery("")
-    props.handleDataChange("now-playing", "")
+    props.handleDataChange(movieDisplayTypes.nowPlaying, "")
   }
+
   return (
     <div id="form-container">
       <form onSubmit={onSearch}>
@@ -27,9 +29,9 @@ const SearchForm = (props) => {
       <button onClick={handleNowPlaying}>Now Playling</button>
       <select onChange={onSort}>
         <option value="">Sort By</option>
-        <option value="alphabetic">Alphabetic</option>
-        <option value="chronological">Chronologically</option>
-        <option value="vote-average">Vote Average</option>
+        <option value={movieSortTypes.alphabetic}>Alphabetic</option>
+        <option value={movieSortTypes.chronological}>Chronologically</option>
+        <option value={movieSortTypes.voteAverage}>Vote Average</option>
       </select>
     </div>
   )

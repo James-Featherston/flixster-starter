@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './MovieModal.css'
-import { searchMovieById } from '../utils/utils.js'
+import { searchMovieById } from '../utils/services.js'
+import { prepareSingleMovie } from '../utils/utils.js'
 
 const MovieModal = ({setModal, id}) => {
   const [movie, setMovie] = useState(null)
-  const handleClose = (event) => {
+  const handleClose = () => {
     setModal(false)
   }
   useEffect (() => {
     const getMovie = async () => {
-      let newMovie = await searchMovieById(id)
+      let res = await searchMovieById(id)
+      const newMovie = prepareSingleMovie(res)
       setMovie(newMovie)
     }
     getMovie()
