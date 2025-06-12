@@ -25,8 +25,8 @@ const SearchForm = (props) => {
   };
 
   return (
-    <section id="form-container">
-      <div id="form-buttons">
+    <section className="form-container">
+      <div className="form-buttons">
         <form onSubmit={onSearch}>
           <input
             className="form-field"

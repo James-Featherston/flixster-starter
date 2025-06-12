@@ -1,4 +1,4 @@
-#modal-background {
+.modal-background {
     position: fixed;
     z-index: 1;
     left: 0;
@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-#modal-container {
+.modal-container {
     background-color: #E4B4B4;
     padding: 20px;
     border: 1px solid #888;
@@ -25,7 +25,7 @@
     align-items: center;
 }
 
-#modal-content-container {
+.modal-content-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -33,7 +33,7 @@
     height: 95%;
     width: 95%;
 }
-#modal-text-content {
+.modal-text-content {
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     justify-content: center;
 }
 
-#modal-movie-img {
+.modal-movie-img {
     height: 80%;
     margin: 10px;
 }

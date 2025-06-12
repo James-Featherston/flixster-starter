@@ -20,19 +20,19 @@ const MovieModal = ({ setModal, id }) => {
     getMovie();
   }, []);
   return (
-    <div onClick={handleClose} id="modal-background">
+    <div onClick={handleClose} className="modal-background">
       <article
         onClick={(event) => event.stopPropagation()}
-        id="modal-container"
+        className="modal-container"
       >
         {movie !== null ? (
-          <div id="modal-content-container">
+          <div className="modal-content-container">
             <img
-              id="modal-movie-img"
+              className="modal-movie-img"
               src={movie.poster === null ? movieImg : movie.poster}
               alt={movie.title}
             />
-            <div id="modal-text-content">
+            <div className="modal-text-content">
               <h1>{movie.title}</h1>
               <p className="modal-p">Release Date: {movie.release_date}</p>
               <p className="modal-p">{movie.overview}</p>

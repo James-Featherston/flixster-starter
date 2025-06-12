@@ -25,7 +25,7 @@ const Sidebar = (props) => {
   return (
     <>
       {props.sidebarState ? (
-        <article id="sidebar-container">
+        <article className="sidebar-container">
           <button onClick={handleHomeBtn} className="sidebar-button">
             Home
           </button>

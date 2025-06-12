@@ -40,7 +40,7 @@ button {
   }
 }
 
-#main-container {
+.main-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ button {
   flex-grow: 1;
 }
 
-#header-container {
+.header-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,12 +57,12 @@ button {
   padding-bottom: 10px;
 }
 
-#title {
+.title {
   margin: 10px 0px 5px 0px;
   color: white;
 }
 
-#footer {
+.footer {
   background-color: #BCA88E;
   width: 100%;
   height: 50px;
@@ -73,11 +73,11 @@ button {
   align-items: center;
 }
 
-#copy-write {
+.copy-write {
   margin-right: 50px;
 }
 
-#banner {
+.banner {
   width: 100%;
   background-color: #E4B4B4;
 }

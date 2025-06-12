@@ -58,8 +58,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <header id="header-container">
-        <h1 id="title">🎬 Flixster</h1>
+      <header className="header-container">
+        <h1 className="title">🎬 Flixster</h1>
         <SearchForm
           handleDataChange={handleDataChange}
           sortData={handleSortChange}
@@ -67,10 +67,10 @@ const App = () => {
           sidebarState={sidebarState}
         />
       </header>
-      <section id="banner">
+      <section className="banner">
         <p>Welcome to Flixster</p>
       </section>
-      <main id="main-container">
+      <main className="main-container">
         <MovieList
           movieData={movieData}
           sortType={sortType}
@@ -87,8 +87,8 @@ const App = () => {
           <p style={{ marginBottom: "20px" }}> No More Movies To Load</p>
         )}
       </main>
-      <footer id="footer">
-        <p id="copy-write">@James-Featherston</p>
+      <footer className="footer">
+        <p className="copy-write">@James-Featherston</p>
       </footer>
     </div>
   );

@@ -1,4 +1,4 @@
-#movie-img {
+.movie-img {
     width: 200px;
 }
 
@@ -10,7 +10,7 @@ p {
     margin: 0px;
 }
 
-#movie-card {
+.movie-card {
     width: 200px;
     flex-grow: 1;
     margin: 10px;
@@ -25,7 +25,7 @@ p {
     max-width: 300px;
 }
 
-#movie-card:hover {
+.movie-card:hover {
     cursor: pointer;
     border: solid 1px #9DA993;
 }

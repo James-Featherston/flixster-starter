@@ -39,9 +39,9 @@ const MovieCard = (props) => {
 
   return (
     <>
-      <article onClick={() => setModal(!modal)} id="movie-card">
+      <article onClick={() => setModal(!modal)} className="movie-card">
         <img
-          id="movie-img"
+          className="movie-img"
           src={props.movie.poster === null ? movieImg : props.movie.poster}
           alt={props.movie.title}
         />
@@ -80,7 +80,7 @@ const MovieCard = (props) => {
           )}
         </div>
       </article>
-      {modal && <MovieModal setModal={setModal} id={props.movie.id} />}
+      {modal && <MovieModal setModal={setModal} className={props.movie.id} />}
     </>
   );
 };

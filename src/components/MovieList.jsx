@@ -55,7 +55,7 @@ const MovieList = (props) => {
 
   return (
     <>
-      <section id="list-container">
+      <section className="list-container">
         {preparedMovieData.map((movie) => {
           return (
             <MovieCard
