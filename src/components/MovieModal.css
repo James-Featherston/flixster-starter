@@ -35,6 +35,10 @@
 }
 #modal-text-content {
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #modal-movie-img {
@@ -43,6 +47,10 @@
 }
 
 .modal-p {
+    margin: 5px;
+}
+
+.video {
     margin: 5px;
 }
 

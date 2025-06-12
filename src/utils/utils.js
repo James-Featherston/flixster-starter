@@ -7,7 +7,17 @@ const getGenres = (genres) => {
     return res
 }
 
-const prepareSingleMovie = (movie) => {
+const getMovieKey = (videos) => {
+    for (let video of videos.results) {
+        if (video.type === "Trailer") {
+
+            return video.key
+        }
+    }
+    return null
+}
+
+const prepareSingleMovie = (movie, movieKey) => {
     const res = {
     "title": movie.title,
     "poster": movie.poster_path === null ? null : `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
@@ -15,6 +25,7 @@ const prepareSingleMovie = (movie) => {
     "release_date": movie.release_date,
     "genres": getGenres(movie.genres),
     "runtime": movie.runtime,
+    "key": movieKey
     }
     return res
 }
@@ -52,4 +63,4 @@ const movieSortTypes = {
     "voteAverage" : 3,
 }
 
-export {prepareMoviesData, prepareSingleMovie, movieDisplayTypes, movieSortTypes};
+export {getMovieKey, prepareMoviesData, prepareSingleMovie, movieDisplayTypes, movieSortTypes};

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./MovieModal.css";
-import { searchMovieById } from "../utils/services.js";
-import { prepareSingleMovie } from "../utils/utils.js";
+import { searchMovieById, searchTrailerById } from "../utils/services.js";
+import { prepareSingleMovie, getMovieKey } from "../utils/utils.js";
 import movieImg from "../assets/movie.png";
 
 const MovieModal = ({ setModal, id }) => {
@@ -12,7 +12,9 @@ const MovieModal = ({ setModal, id }) => {
   useEffect(() => {
     const getMovie = async () => {
       let res = await searchMovieById(id);
-      const newMovie = prepareSingleMovie(res);
+      const videos = await searchTrailerById(id);
+      const movieKey = getMovieKey(videos);
+      const newMovie = prepareSingleMovie(res, movieKey);
       setMovie(newMovie);
     };
     getMovie();
@@ -36,6 +38,15 @@ const MovieModal = ({ setModal, id }) => {
               <p className="modal-p">{movie.overview}</p>
               <p className="modal-p">Genres: {movie.genres}</p>
               <p className="modal-p">Runtime: {movie.runtime} Minutes</p>
+              <iframe
+                id="player"
+                className="video"
+                type="text/html"
+                width="350"
+                height="200"
+                src={`http://www.youtube.com/embed/${movie.key}?enablejsapi=1`}
+                allowFullScreen
+              ></iframe>
               <button onClick={handleClose}>Close</button>
             </div>
           </div>
