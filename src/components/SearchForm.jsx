@@ -43,14 +43,18 @@ const SearchForm = (props) => {
           Clear
         </button>
       </div>
-      <button onClick={changeToNowPlaying}>Now Playing</button>
-      <select onChange={onSort}>
+      <button className="form-btn" onClick={changeToNowPlaying}>
+        Now Playing
+      </button>
+      <select className="form-btn" onChange={onSort}>
         <option value="">Sort By</option>
         <option value={movieSortTypes.alphabetic}>Alphabetic</option>
         <option value={movieSortTypes.chronological}>Chronologically</option>
         <option value={movieSortTypes.voteAverage}>Vote Average</option>
       </select>
-      <button onClick={handleSidebar}>Open Sidebar</button>
+      <button className="form-btn" onClick={handleSidebar}>
+        Open Sidebar
+      </button>
     </section>
   );
 };

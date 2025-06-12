@@ -11,6 +11,7 @@
     align-items: center;
 }
 
+
 .modal-container {
     background-color: #E4B4B4;
     padding: 20px;
@@ -52,5 +53,17 @@
 
 .video {
     margin: 5px;
+}
+
+@media (max-width: 1000px) {
+    .modal-content-container {
+        flex-direction: column;
+    }
+    .modal-movie-img {
+        max-width: 90%;
+    }
+    iframe {
+        max-width: 90%;
+    }
 }
 
