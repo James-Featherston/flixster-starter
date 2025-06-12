@@ -12,24 +12,32 @@ const MovieCard = (props) => {
   /* Sets movie to watched */
   const handleWatchClick = (event) => {
     event.stopPropagation();
-    if (watched) {
-      props.removeWatchedMovie(props.movie);
-    } else {
-      props.addWatchedMovie(props.movie);
-    }
+    props.toggleWatchedMovies(props.movie);
     setWatched(!watched);
   };
-
   /* Sets movie to liked */
   const handleLikedClick = (event) => {
     event.stopPropagation();
-    if (liked) {
-      props.removeLikedMovie(props.movie);
-    } else {
-      props.addLikedMovie(props.movie);
-    }
+    props.toggleLikedMovies(props.movie);
     setLiked(!liked);
   };
+
+  useEffect(() => {
+    setLiked(() => {
+      if (props.likedMovies[props.movie.id]) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setWatched(() => {
+      if (props.watchedMovies[props.movie.id]) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }, []);
 
   return (
     <>

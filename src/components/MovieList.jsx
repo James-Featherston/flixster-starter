@@ -9,30 +9,36 @@ import {
 } from "../utils/sort-filter";
 import { movieSortTypes, movieDisplayTypes } from "../utils/utils";
 import Sidebar from "./Sidebar";
+import { searchMovieById } from "../utils/services";
 
 const MovieList = (props) => {
-  const [likedMovies, setLikedMovies] = useState([]);
-  const [watchedMovies, setWatchedMovies] = useState([]);
+  const [likedMovies, setLikedMovies] = useState({});
+  const [watchedMovies, setWatchedMovies] = useState({});
 
   if (!props.movieData) {
     return <div>Loading...</div>;
   }
   /* The following functions add/remove movies from the liked and watched lists */
-  const addLikedMovie = (movie) => {
-    setLikedMovies([...likedMovies, movie]);
+  const toggleLikedMovies = (movie) => {
+    setLikedMovies((prevLikedMovies) => {
+      if (prevLikedMovies[movie.id]) {
+        const { [movie.id]: trash, ...rest } = prevLikedMovies;
+        return rest;
+      } else {
+        return { ...prevLikedMovies, [movie.id]: movie };
+      }
+    });
   };
-  const removeLikedMovie = (targetMovie) => {
-    setLikedMovies(
-      likedMovies.filter((movie) => movie.title !== targetMovie.title)
-    );
-  };
-  const addWatchedMovie = (movie) => {
-    setWatchedMovies([...watchedMovies, movie]);
-  };
-  const removeWatchedMovie = (targetMovie) => {
-    setWatchedMovies(
-      watchedMovies.filter((movie) => movie.title !== targetMovie.title)
-    );
+
+  const toggleWatchedMovies = (movie) => {
+    setWatchedMovies((prevWatchedMovies) => {
+      if (prevWatchedMovies[movie.id]) {
+        const { [movie.id]: trash, ...rest } = prevWatchedMovies;
+        return rest;
+      } else {
+        return { ...prevWatchedMovies, [movie.id]: movie };
+      }
+    });
   };
 
   /* Prepares data based on display type and sort type */
@@ -43,9 +49,9 @@ const MovieList = (props) => {
   ) {
     preparedMovieData = prepareMoviesData(props.movieData);
   } else if (props.movieDisplayType === movieDisplayTypes.favorites) {
-    preparedMovieData = likedMovies;
+    preparedMovieData = Object.values(likedMovies);
   } else {
-    preparedMovieData = watchedMovies;
+    preparedMovieData = Object.values(watchedMovies);
   }
   if (props.sortType === movieSortTypes.alphabetic) {
     sortMoviesAlphabetically(preparedMovieData);
@@ -63,11 +69,11 @@ const MovieList = (props) => {
             <MovieCard
               key={movie.id}
               movie={movie}
-              addLikedMovie={addLikedMovie}
-              removeLikedMovie={removeLikedMovie}
-              addWatchedMovie={addWatchedMovie}
-              removeWatchedMovie={removeWatchedMovie}
+              toggleLikedMovies={toggleLikedMovies}
+              toggleWatchedMovies={toggleWatchedMovies}
               movieDisplayType={props.movieDisplayType}
+              likedMovies={likedMovies}
+              watchedMovies={watchedMovies}
             />
           );
         })}
