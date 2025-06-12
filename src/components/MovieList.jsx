@@ -59,6 +59,7 @@ const MovieList = (props) => {
         {preparedMovieData.map((movie) => {
           return (
             <MovieCard
+              key={movie.id}
               movie={movie}
               addLikedMovie={addLikedMovie}
               removeLikedMovie={removeLikedMovie}
