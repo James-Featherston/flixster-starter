@@ -9,6 +9,7 @@ const MovieModal = ({ setModal, id }) => {
   const handleClose = () => {
     setModal(false);
   };
+  /* Retrieves extra information on the movie when it is clicked */
   useEffect(() => {
     const getMovie = async () => {
       let res = await searchMovieById(id);

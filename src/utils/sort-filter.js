@@ -1,3 +1,7 @@
+/* 
+Handles all sorting and filtering
+*/
+
 const sortMoviesAlphabetically = (movies) => {
     movies.sort((a, b) => {
         const lowerA = a.title.toLowerCase()

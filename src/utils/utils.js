@@ -1,3 +1,7 @@
+/* 
+Input: Array of Genre objects
+Output: String of genre names appended together
+*/
 const getGenres = (genres) => {
     let res = []
     genres.forEach(genre => {
@@ -7,6 +11,11 @@ const getGenres = (genres) => {
     return res
 }
 
+/* 
+Finds the movie key with type trailer
+Input: List of video objects
+Output: String of the key
+*/
 const getMovieKey = (videos) => {
     for (let video of videos.results) {
         if (video.type === "Trailer") {
@@ -17,7 +26,12 @@ const getMovieKey = (videos) => {
     return null
 }
 
-const prepareSingleMovie = (movie, movieKey) => {
+/* 
+Creates a movie object with the necessary data
+Input: Movie object and video key
+Output: New movie object with required data
+*/
+const prepareSingleMovie = (movie, videoKey) => {
     const res = {
     "title": movie.title,
     "poster": movie.poster_path === null ? null : `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
@@ -25,11 +39,16 @@ const prepareSingleMovie = (movie, movieKey) => {
     "release_date": movie.release_date,
     "genres": getGenres(movie.genres),
     "runtime": movie.runtime,
-    "key": movieKey
+    "key": videoKey
     }
     return res
 }
 
+/* 
+Creates a movie object array with the necessary data
+Input: Movie object
+Output: List of new movie objects
+*/
 const prepareMoviesData = (data) => {
     let result = []
     
@@ -49,6 +68,7 @@ const prepareMoviesData = (data) => {
     return result
 }
 
+/* Enum for movie display types */
 const movieDisplayTypes = {
     "nowPlaying" : 0,
     "searchMovies" : 1,
@@ -56,6 +76,7 @@ const movieDisplayTypes = {
     "watched": 3, 
 }
 
+/* Enum for movie sort types */
 const movieSortTypes = {
     "default" : 0,
     "alphabetic" : 1,

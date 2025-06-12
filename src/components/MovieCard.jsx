@@ -9,6 +9,7 @@ const MovieCard = (props) => {
   const [liked, setLiked] = useState(false);
   const [watched, setWatched] = useState(false);
 
+  /* Sets movie to watched */
   const handleWatchClick = (event) => {
     event.stopPropagation();
     if (watched) {
@@ -19,6 +20,7 @@ const MovieCard = (props) => {
     setWatched(!watched);
   };
 
+  /* Sets movie to liked */
   const handleLikedClick = (event) => {
     event.stopPropagation();
     if (liked) {
@@ -28,14 +30,6 @@ const MovieCard = (props) => {
     }
     setLiked(!liked);
   };
-
-  useEffect(() => {
-    if (props.movieDisplayType === movieDisplayTypes.favorites) {
-      setLiked(true);
-    } else if (props.movieDisplayType === movieDisplayTypes.watched) {
-      setWatched(true);
-    }
-  }, [props.movieDisplayType]);
 
   return (
     <>

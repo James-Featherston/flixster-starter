@@ -17,6 +17,7 @@ const MovieList = (props) => {
   if (!props.movieData) {
     return <div>Loading...</div>;
   }
+  /* The following functions add/remove movies from the liked and watched lists */
   const addLikedMovie = (movie) => {
     setLikedMovies([...likedMovies, movie]);
   };
@@ -34,6 +35,7 @@ const MovieList = (props) => {
     );
   };
 
+  /* Prepares data based on display type and sort type */
   let preparedMovieData = null;
   if (
     props.movieDisplayType === movieDisplayTypes.nowPlaying ||

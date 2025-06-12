@@ -8,18 +8,22 @@ const SearchForm = (props) => {
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
   };
+  /* Changes the display type to search with the search query */
   const onSearch = (event) => {
     event.preventDefault();
     props.handleDataChange(movieDisplayTypes.searchMovies, query);
   };
+  /* Changes the sort type */
   const onSort = (event) => {
     props.sortData(Number(event.target.value));
   };
+  /* Changes the display type*/
   const changeToNowPlaying = (event) => {
     setQuery("");
     props.handleDataChange(movieDisplayTypes.nowPlaying, "");
   };
 
+  /* Opens the sidebar */
   const handleSidebar = () => {
     props.setSidebarState(!props.sidebarState);
   };

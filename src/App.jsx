@@ -14,6 +14,7 @@ const App = () => {
   const [sortType, setSortType] = useState(0);
   const [sidebarState, setSidebarState] = useState(false);
 
+  /* Retrieves the next page of the now playing movies */
   const getMoreNowPlaying = async () => {
     const nextMovies = await fetchNowPlayingData(page);
     if (movieData.length === 0) {
@@ -22,6 +23,7 @@ const App = () => {
     setMovieData([...movieData, ...nextMovies.results]);
   };
 
+  /* Retrieves the next page of the search results */
   const getSearchResults = async () => {
     const nextMovies = await fetchSearchData(page, searchQuery);
     if (movieData.length === 0) {
@@ -30,6 +32,7 @@ const App = () => {
     setMovieData([...movieData, ...nextMovies.results]);
   };
 
+  /* Updates state when the display type is changed */
   const handleDataChange = (newType, searchTerm) => {
     if (newType !== movieDisplayType || searchTerm !== searchQuery) {
       setMovieDisplayType(newType);
@@ -40,14 +43,17 @@ const App = () => {
     }
   };
 
+  /* Updates the sort type */
   const handleSortChange = (newSortType) => {
     setSortType(newSortType);
   };
 
+  /* Loads more  pages of the current display type */
   const handleLoadMore = () => {
     setPage(page + 1);
   };
 
+  /* Renders movies when certain states are changed*/
   useEffect(() => {
     if (movieDisplayType === movieDisplayTypes.nowPlaying) {
       getMoreNowPlaying();
@@ -83,8 +89,11 @@ const App = () => {
           <button style={{ marginBottom: "20px" }} onClick={handleLoadMore}>
             Load More
           </button>
-        ) : (
+        ) : movieDisplayType === movieDisplayTypes.nowPlaying ||
+          movieDisplayType === movieDisplayTypes.searchMovies ? (
           <p style={{ marginBottom: "20px" }}> No More Movies To Load</p>
+        ) : (
+          <p>Display Movie Results</p>
         )}
       </main>
       <footer className="footer">

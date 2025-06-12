@@ -1,3 +1,7 @@
+/* 
+Server side logic for fetching data
+*/
+
 const fetchNowPlayingData = async (page) => {
     try {
         const apiKey = import.meta.env.VITE_API_KEY;
