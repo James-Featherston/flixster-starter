@@ -35,7 +35,6 @@ const MovieCard = (props) => {
     } else if (props.movieDisplayType === movieDisplayTypes.watched){
       setWatched(true)
     }
-
   }, [])
 
   return (

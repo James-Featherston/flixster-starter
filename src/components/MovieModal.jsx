@@ -14,7 +14,6 @@ const MovieModal = ({setModal, id}) => {
       let res = await searchMovieById(id)
       const newMovie = prepareSingleMovie(res)
       setMovie(newMovie)
-      console.log("I'm being rerendered modal")
     }
     getMovie()
   }, [])

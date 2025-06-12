@@ -17,7 +17,6 @@ const MovieList = (props) => {
       </div>
     )
   }
-  console.log("I'm being rerendered")
   const addLikedMovie = (movie) => {
     setLikedMovies([...likedMovies, movie])
   }
@@ -39,7 +38,6 @@ const MovieList = (props) => {
   } else {
     preparedMovieData = watchedMovies
   }
-  console.log(preparedMovieData)
   if (props.sortType === movieSortTypes.alphabetic) {
     sortMoviesAlphabetically(preparedMovieData)
   } else if (props.sortType === movieSortTypes.voteAverage) {
@@ -47,7 +45,6 @@ const MovieList = (props) => {
   } else if (props.sortType === movieSortTypes.chronological) {
     sortMoviesChronologically(preparedMovieData)
   }
-  console.log("Am I getting here")
 
   return (
     <>

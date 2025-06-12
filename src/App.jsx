@@ -34,7 +34,7 @@ const App = () => {
     if (newType !== movieDisplayType || searchTerm !== searchQuery) {
       setMovieDisplayType(newType)
       setSearchQuery(searchTerm)
-      // setMovieData([])
+      setMovieData([])
       setNumPages(1)
       setPage(1)
     }
@@ -54,8 +54,7 @@ const App = () => {
     } else if (movieDisplayType === movieDisplayTypes.searchMovies) {
       getSearchResults()
     }
-    console.log("looping")
-  }, [movieDisplayType])
+  }, [movieDisplayType, page, searchQuery])
 
   return (
     <div className="App">
