@@ -6,13 +6,13 @@ import { fetchNowPlayingData, fetchSearchData } from './utils/services'
 import { movieSortTypes, movieDisplayTypes } from './utils/utils'
 
 const App = () => {
-  
   const [movieData, setMovieData] = useState([])
   const [page, setPage] = useState(1)
   const [numPages, setNumPages] = useState(1)
-  const [movieDisplayType, setmovieDisplayType] = useState(0)
+  const [movieDisplayType, setMovieDisplayType] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
   const [sortType, setSortType] = useState(0)
+  const [sidebarState, setSidebarState] = useState(false)
 
   const getMoreNowPlaying = async () => {
     const nextMovies = await fetchNowPlayingData(page)
@@ -32,7 +32,7 @@ const App = () => {
 
   const handleDataChange = (newType, searchTerm) => {
     if (newType !== movieDisplayType || searchTerm !== searchQuery) {
-      setmovieDisplayType(newType)
+      setMovieDisplayType(newType)
       setSearchQuery(searchTerm)
       setMovieData([])
       setNumPages(1)
@@ -54,21 +54,27 @@ const App = () => {
     } else if (movieDisplayType === movieDisplayTypes.searchMovies) {
       getSearchResults()
     }
-  }, [page, movieDisplayType, searchQuery])
+  }, [page, searchQuery, movieDisplayType])
 
   return (
     <div className="App">
       <header id="header-container">
         <h1 id="title">🎬 Flixster</h1>
-        <SearchForm id 
+        <SearchForm
           handleDataChange={handleDataChange} sortData={handleSortChange}
+          setSidebarState={setSidebarState} sidebarState={sidebarState}
         />
       </header>
       <section id="banner">
         <p>Welcome to Flixster</p>
       </section>
       <main id="main-container">
-        <MovieList movieData={movieData} sortType={sortType}/>
+        <MovieList 
+          movieData={movieData} sortType={sortType}
+          setSidebarState={setSidebarState} sidebarState={sidebarState}
+          movieDisplayType={movieDisplayType}
+          handleDataChange={handleDataChange}
+        />
         {
           page < numPages  && movieData.length !== 0 ? 
           <button style={{marginBottom: "20px"}} onClick={handleLoadMore}>Load More</button>

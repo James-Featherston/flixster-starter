@@ -44,4 +44,21 @@ const searchMovieById = async (id) => {
     return movie
 }
 
-export {searchMovieById, fetchNowPlayingData, fetchSearchData}
+const searchTrailerById = async (id) => {
+    let movie = null
+    try {
+        const apiKey = import.meta.env.VITE_API_KEY;
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}`)
+        if (!response.ok) {
+            throw new Error('Failed to fetch data')
+        }
+        movie = await response.json();
+    } catch (error) {
+        console.error(error)
+    }
+    return movie
+}
+
+
+
+export {searchMovieById, fetchNowPlayingData, fetchSearchData, searchTrailerById}
