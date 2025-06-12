@@ -17,11 +17,12 @@ const MovieList = (props) => {
       </div>
     )
   }
+  console.log("I'm being rerendered")
   const addLikedMovie = (movie) => {
     setLikedMovies([...likedMovies, movie])
   }
   const removeLikedMovie = (targetMovie) => {
-    setLikedMovies(likedMovies.filter(movie => movie.tile !== targetMovie.title))
+    setLikedMovies(likedMovies.filter(movie => movie.title !== targetMovie.title))
   }
   const addWatchedMovie = (movie) => {
     setWatchedMovies([...watchedMovies, movie])
@@ -46,6 +47,7 @@ const MovieList = (props) => {
   } else if (props.sortType === movieSortTypes.chronological) {
     sortMoviesChronologically(preparedMovieData)
   }
+  console.log("Am I getting here")
 
   return (
     <>

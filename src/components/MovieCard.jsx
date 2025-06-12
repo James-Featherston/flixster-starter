@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './MovieCard.css'
 import MovieModal from './MovieModal'
 import movieImg from '../assets/movie.png'
@@ -29,12 +29,14 @@ const MovieCard = (props) => {
     setLiked(!liked)
   }
   
+  useEffect(() => {
+    if (props.movieDisplayType === movieDisplayTypes.favorites) {
+      setLiked(true)
+    } else if (props.movieDisplayType === movieDisplayTypes.watched){
+      setWatched(true)
+    }
 
-  if (props.movieDisplayType === movieDisplayTypes.favorites) {
-    setLiked(true)
-  } else if (props.movieDisplayType === movieDisplayTypes.watched){
-    setWatched(true)
-  }
+  }, [])
 
   return (
     <>
