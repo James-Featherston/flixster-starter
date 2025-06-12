@@ -80,7 +80,7 @@ const MovieCard = (props) => {
           )}
         </div>
       </article>
-      {modal && <MovieModal setModal={setModal} className={props.movie.id} />}
+      {modal && <MovieModal setModal={setModal} id={props.movie.id} />}
     </>
   );
 };
