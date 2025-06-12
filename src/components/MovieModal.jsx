@@ -44,7 +44,7 @@ const MovieModal = ({ setModal, id }) => {
                 type="text/html"
                 width="350"
                 height="200"
-                src={`http://www.youtube.com/embed/${movie.key}?enablejsapi=1`}
+                src={`https://www.youtube.com/embed/${movie.key}?enablejsapi=1`}
                 allowFullScreen
               ></iframe>
               <button onClick={handleClose}>Close</button>
