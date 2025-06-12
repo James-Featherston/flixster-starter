@@ -59,7 +59,7 @@ Deployed Application (**Flixter-Featherston**): [Flixster Deployed Site](https:/
     - [x] Search bar
     - [x] Movie grid
     - [x] Footer section
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it. 
   - [x] **Deployment**
   - [x] Website is deployed via Render.
   - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough. 
@@ -100,9 +100,14 @@ Deployed Application (**Flixter-Featherston**): [Flixster Deployed Site](https:/
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+`<div>
+    <a href="https://www.loom.com/share/60c723c5309f4a578c8bc6941fd787bd">
+      <p>Loom Message - 12 June 2025 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/60c723c5309f4a578c8bc6941fd787bd">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/60c723c5309f4a578c8bc6941fd787bd-4b013c884701030f-full-play.gif">
+    </a>
+  </div>`
 
 ### Reflection
 
@@ -116,7 +121,7 @@ First, if I had more time I would learn to use React Redux so that I could struc
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+The project demo went well. I was able to show all the core features and stretch features that I needed to.
 
 ### Open-source libraries used
 
@@ -124,4 +129,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to Matthew the instructor. He helped explain to me how React works, which helped me catch some of the big bugs I had.
