@@ -101,11 +101,11 @@ Deployed Application (**Flixter-Featherston**): [Flixster Deployed Site](https:/
 ### Walkthrough Video
 
 `<div>
-    <a href="https://www.loom.com/share/60c723c5309f4a578c8bc6941fd787bd">
+    <a href="https://www.loom.com/share/5868c6974495425fb2246597a834d2a1">
       <p>Loom Message - 12 June 2025 - Watch Video</p>
     </a>
-    <a href="https://www.loom.com/share/60c723c5309f4a578c8bc6941fd787bd">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/60c723c5309f4a578c8bc6941fd787bd-4b013c884701030f-full-play.gif">
+    <a href="https://www.loom.com/share/5868c6974495425fb2246597a834d2a1">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/5868c6974495425fb2246597a834d2a1-aef362244d55fe83-full-play.gif">
     </a>
   </div>`
 
@@ -117,7 +117,7 @@ Yes, the labs helped me to complete the assignment. Specifically, the labs taugh
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-First, if I had more time I would learn to use React Redux so that I could structure my code more neatly. In the instruction period we were only taught how to pass data through the components with props, but this caused a lot of prop drilling within my code. Second, I would also change the way I handled liked/watched playlists. I stored the movies in watched and favorite lists and just added the object to the list when the like/watched button was clicked. The problem is that when like a movie, navigate to a different display, and then navigate back to the same display, the movie no longer shows as liked. Furthermore, when you navigate to the liked display, there is two instances of that same movie causing a key error. To solve this I would either try to store the liked data between renders or compare every movie in the display to the liked list (which is an inefficient solution). Finally, I would try and split up the useEffect into more useEffects. The current implementation has three dependencies in the the dependency array, which causes some unneccessary rerenders.
+First, if I had more time I would learn to use React Redux so that I could structure my code more neatly. In the instruction period we were only taught how to pass data through the components with props, but this caused a lot of prop drilling within my code. Second, I would try and split up the useEffect into more useEffects. The current implementation has three dependencies in the the dependency array, which causes some unneccessary rerenders.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
